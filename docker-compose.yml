@@ -1,0 +1,14 @@
+version: '2'
+services:
+  server:
+    container_name: fastapi
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - "./app:/app"
+    ports:
+      - "8008:8008"
+    environment:
+      - PORT=8008      
+    entrypoint: /start-reload.sh
